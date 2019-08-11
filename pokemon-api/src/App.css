@@ -1,0 +1,40 @@
+.pokemonSprite {
+  height: 200px;
+  width: 200px;
+}
+
+.pokemonList {
+  text-align: center;
+}
+
+.pokemonList ul {
+  list-style-type: none;
+  padding: 0;
+  max-height: 50vh;
+  overflow: auto;
+}
+
+.pokemonTypeList ul, .pokemonMoveList ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.pokemonMoveList {
+  overflow-y: auto;
+  max-height: 200px;
+  max-width: 200px;
+  text-align: center;
+  margin:auto;
+}
+
+.btnCatch {
+  max-width: 70%
+}
+
+@media(min-width: 576px) {
+  .btnCatch {
+    position: relative;
+    top: 30%;
+    max-width: 100%
+  }
+}
