@@ -133,12 +133,12 @@ class App extends React.Component {
           <Router>
             <Navbar sticky="top" bg="dark" expand="lg" variant="dark">
               <Container>
-              <Navbar.Brand href="/"><img src={logo} width="30" height="30" alt="logo"/> My Pok&eacute;mon API</Navbar.Brand>
+              <Navbar.Brand href="/my-pokemon"><img src={logo} width="30" height="30" alt="logo"/> My Pok&eacute;mon API</Navbar.Brand>
               <Navbar.Toggle aria-controls="basic-navbar-nav" />
               <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                  <Link className="nav-link" onClick={() => this.hideCatchButton()} to={"/"}>Pok&eacute;mon List</Link>
-                  <Link className="nav-link" onClick={() => this.hideCatchButton()} to={"/MyPokemonList"}>My Pok&eacute;mon List</Link>
+                  <Link className="nav-link" onClick={() => this.hideCatchButton()} to={"/my-pokemon"}>Pok&eacute;mon List</Link>
+                  <Link className="nav-link" onClick={() => this.hideCatchButton()} to={"/my-pokemon/MyPokemonList"}>My Pok&eacute;mon List</Link>
                 </Nav>
               </Navbar.Collapse>
               </Container>
@@ -150,23 +150,23 @@ class App extends React.Component {
                 <ul>
                   {items.results.map(item => (
                     <li key={item.url}>
-                      <Link onClick={() => this.setCurrentPokemon(item.name)} to={"/PokemonDetails/" + item.name}>{item.name}</Link>
+                      <Link onClick={() => this.setCurrentPokemon(item.name)} to={"/my-pokemon/PokemonDetails/" + item.name}>{item.name}</Link>
                     </li>
                   ))}
                 </ul>
                 <h3>Owned a total of: {this.state.collectedPokemon.length} pok&eacute;mons</h3>
                 </div>
-                <Route exact path="/" render={() => <div className="col-md-8 text-center"><h1>Welcome</h1></div>} />
+                <Route exact path="/my-pokemon" render={() => <div className="col-md-8 text-center"><h1>Welcome</h1></div>} />
                 {this.state.detailClicked === true &&
                 <div className="col-md-8 text-center">
                   <div className="row">
-                  <Route path="/PokemonDetails/:name" component={PokemonDetails} />
+                  <Route path="/my-pokemon/PokemonDetails/:name" component={PokemonDetails} />
                   <div className="col-md-4 col-sm-6">
                   <button className="btn btnPrimary btnCatch" onClick={() => this.catchPokemon(this.state.pokemon)}><img width="100%" src={logo} alt="catchButton"></img></button>
                   </div>
                   </div>
                 </div>}
-                <Route path="/MyPokemonList" render={() => this.renderPokemonList(this.state.collectedPokemon)} />
+                <Route path="/my-pokemon/MyPokemonList" render={() => this.renderPokemonList(this.state.collectedPokemon)} />
               </div>
             </div>
           </Router>

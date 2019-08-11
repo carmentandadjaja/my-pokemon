@@ -19,7 +19,7 @@
   padding: 0;
 }
 
-.pokemonMoveList {
+.pokemonMoveList ul {
   overflow-y: auto;
   max-height: 200px;
   max-width: 200px;
